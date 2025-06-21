@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JGS Image to Prompt Generator 25.1v</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div class="welcome-container" id="welcomeScreen">
+        <img src="logo.png" alt="JGS Logo" class="welcome-logo">
+        <h1 class="app-name">JGS Image to Prompt Generator 25.1v</h1>
+        <p class="app-description">
+            Transform your images into detailed AI prompts with our advanced analysis technology. 
+            Get accurate, structured prompts that capture every nuance of your image for perfect AI generations.
+        </p>
+        <button class="get-started-btn" id="getStartedBtn"><i class="fa-brands fa-get-pocket"></i> Get Started</button>
+    </div>
+    
+    <!-- Main Dashboard -->
+    <div class="container" id="mainContainer">
+        <div class="header">
+            <div>
+                <h1 class="app-title"><i class="fa-solid fa-gamepad"></i> JGS Image to Prompt Generator 25.1v</h1>
+                <div class="typing-effect" id="typingEffect"></div>
+            </div>
+            <div class="auth-buttons">
+                <button class="btn btn-primary" id="signupBtn"><i class="fa-solid fa-user-plus"></i> Signup</button>
+                <button class="btn btn-secondary" id="trySinhaBtn"><i class="fa-solid fa-rocket"></i> Try SINHA AI</button>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="upload-section">
+                <div class="upload-header">
+                    <h2 class="upload-title">Upload Image</h2>
+                </div>
+                
+                <div class="upload-area">
+                    <div class="upload-box" id="uploadBox">
+                        <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                        <p class="upload-text">Drag & Drop your image here or click to browse</p>
+                        <input type="file" class="upload-input" id="fileInput" accept="image/*">
+                        <button class="btn btn-secondary">Select Image</button>
+                    </div>
+                    
+                    <div class="preview-container" id="previewContainer">
+                        <p class="preview-placeholder">Image preview will appear here</p>
+                        <img src="" alt="Preview" class="preview-image" id="previewImage">
+                    </div>
+                </div>
+                
+                <div class="input-container">
+                    <input type="text" class="url-input" id="urlInput" placeholder="Or enter image URL here...">
+                     <div class="settings-container">
+                        <button class="settings-btn" id="settingsBtn">
+                            <span><i class="fa-solid fa-sliders"></i></span>
+                            <span id="currentVersionDisplay">Version 1.0 Beta</span>
+                        </button>
+                        <div class="settings-dropdown" id="settingsDropdown">
+                            <div class="dropdown-item active" data-version="1.0">Version 1.0 Beta</div>
+                            <div class="dropdown-item locked" data-version="2.0" id="advanceOption">
+                                Advance Thinking
+                                <span class="tooltip">Signup to unlock this feature</span>
+                            </div>
+                            <div class="dropdown-item locked" data-version="3.0" id="superOption">
+                                Super Thinking
+                                <span class="tooltip">Signup to unlock this feature</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="send-btn" id="sendBtn" disabled>
+                     <span><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                        <span>GENERATE PROMPT</span>
+                    </button>
+                
+                <div class="limit-message" id="limitMessage">
+                    <span><i class="fa-solid fa-triangle-exclamation"></i> You've exceeded your daily limit. Please signup for unlimited access.</span>
+                    <button class="btn btn-accent" id="limitSignupBtn"><i class="fa-solid fa-user-plus"></i> Signup</button>
+                </div>
+            </div>
+            
+            <div class="analysis-section" id="analysisSection">
+                <div class="thinking-header">
+                    <div class="thinking-text"><i class="fa-solid fa-brain"></i> Thinking</div>
+                    <div class="thinking-dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                
+                <div class="analysis-content">
+                    <p id="thinkingProcess" class="typing-text"></p>
+                </div>
+                
+                <div class="prompt-container">
+                    <div class="prompt-title"><i class="fa-brands fa-slack"></i> Generated Prompt:</div>
+                    <div class="prompt-text" id="generatedPrompt"></div>
+                    <button class="copy-btn" id="copyBtn"><i class="fa-solid fa-copy"></i>  Copy</button>
+                </div>
+                
+                <div class="action-buttons" id="actionButtons">
+                    <!-- Buttons will be added dynamically based on version -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 JGS Image to Prompt Generator. All rights reserved.</p>
+        </div>
+    </div>
+    
+    <!-- Verification Popup -->
+    <div class="popup-overlay" id="verificationPopup">
+        <div class="popup-card">
+               <button class="popup-close-btn" id="closePopupBtn">&times;</button>
+            <h2 class="popup-title">Enter Verification Code</h2>
+            <input type="text" class="popup-input" id="verificationCode" placeholder="Enter code here">
+            <button class="btn btn-primary" id="verifyBtn"><i class="fa-solid fa-certificate"></i> Verify</button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfAfC4Skz6wSDzHU6UbT0PG7xKhd92pYKnKhioKGOnxCNpEGA/viewform" class="register-link" target="_blank">Register Now</a>
+        </div>
+    </div>
+    
+    <!-- Loading Screen -->
+    <div class="loading-container" id="loadingScreen">
+        <div class="loading-spinner"></div>
+        <div>
+            <div class="loading-text" id="loadingText">Loading...</div>
+        </div>
+    </div>
+    
+<script src="script.js"></script>
+</body>
+</html>
