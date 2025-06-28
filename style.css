@@ -1006,3 +1006,11 @@
     color: rgb(180, 180, 180);
     line-height: 1.4;
 }
+/* Add this to your style.css file for the background blur effect */
+body.blur-background > #welcomeScreen,
+body.blur-background > #mainContainer {
+    filter: blur(5px);
+    transition: filter 0.2s ease-in-out;
+    pointer-events: none;
+    user-select: none;
+}
