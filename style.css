@@ -23,11 +23,11 @@
         
         body {
             min-height: 100vh;
-            background: url('BGI.gif') no-repeat center center fixed;
+            background: url('F.gif') no-repeat center center fixed;
             background-size: cover;
             color: var(--light);
             overflow-x: hidden;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(35px);
             -webkit-backdrop-filter: blur(10px);
         }
         
@@ -835,3 +835,174 @@
             gap: 1rem; /* Add some space between the stacked items */
         }
     }
+.ai-tools-expanded {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1500px;
+    width: 100%;
+    margin-top: 30px;
+    animation: expandDown 0.5s ease-out;
+}
+
+@keyframes expandDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 500px;
+    }
+}
+
+
+
+.ai-tool-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.ai-tool-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.ai-tool-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.ai-tool-icon {
+    font-size: 24px;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.ai-tool-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.ai-tool-description {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.4;
+}
+/* Explain Cards */
+.explain-cards-section {
+    max-width: 1140px;
+    margin: 30px auto; /* Use auto margin for horizontal centering */
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.459);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgb(3, 3, 85);
+    border-radius: 15px;
+}
+
+.explain-cards-header {
+    display: flex;
+    align-items: center;
+      justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.explain-cards-header i {
+    font-size: 24px;
+            margin-bottom: 10px;
+            background: rgb(255, 213, 27);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: aurora-flow 5s ease-in-out infinite;
+        }
+
+.explain-cards-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(3, 11, 59);
+}
+
+.explain-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+.explain-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.explain-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(1, 5, 26, 0.1), rgba(118, 75, 162, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.explain-card:hover::before {
+    opacity: 1;
+}
+
+.explain-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 119, 255, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.explain-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.explain-card-header i {
+    font-size: 18px;
+    color: #4ecdc4;
+}
+
+.explain-card-header h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+}
+
+.explain-card-description {
+    font-size: 13px;
+    color: rgb(180, 180, 180);
+    line-height: 1.4;
+}
